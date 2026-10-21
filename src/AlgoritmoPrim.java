@@ -3,10 +3,6 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /**
- * Implementação do Algoritmo de Prim para encontrar a
- * ÁRVORE GERADORA MÍNIMA (AGM / MST - Minimum Spanning Tree)
- * de um grafo não direcionado, conexo e ponderado.
- *
  * Ideia: começamos com um único vértice e, a cada passo, adicionamos
  * à árvore a aresta MAIS BARATA que liga um vértice que já está na árvore
  * a um vértice que ainda não está. Repetimos até todos os vértices entrarem.
@@ -19,7 +15,7 @@ public class AlgoritmoPrim {
     private final Grafo grafo;
     private final boolean mostrarPassoAPasso;
 
-    private final List<Aresta> arestasDaArvore = new ArrayList<>();
+    private final List<Aresta> arestasDaArvore = new ArrayList<>();                                                                                                                                                                                 
     private double custoTotal = 0;
 
     public AlgoritmoPrim(Grafo grafo, boolean mostrarPassoAPasso) {
@@ -27,24 +23,18 @@ public class AlgoritmoPrim {
         this.mostrarPassoAPasso = mostrarPassoAPasso;
     }
 
-    /**
-     * Executa o algoritmo começando pelo vértice informado.
-     *
-     * @return a lista de arestas que formam a árvore geradora mínima
-     */
     public List<Aresta> executar(int verticeInicial) {
         int totalDeVertices = grafo.getQuantidadeDeVertices();
         boolean[] estaNaArvore = new boolean[totalDeVertices];
         PriorityQueue<Aresta> filaDeArestasCandidatas = new PriorityQueue<>();
 
         arestasDaArvore.clear();
-        custoTotal = 0;
-
-        // Passo inicial: o vértice de partida entra na árvore
-        // e todas as arestas que saem dele viram candidatas.
+        custoTotal = 0;                                              
+                               
+        // Passo inicial: o vértice de partida entra na árvore e todas as arestas que saem dele viram candidatas.
         adicionarVerticeNaArvore(verticeInicial, estaNaArvore, filaDeArestasCandidatas);
         int numeroDoPasso = 1;
-
+                                                                                                        
         // A árvore está completa quando tiver (V - 1) arestas.
         while (!filaDeArestasCandidatas.isEmpty() && arestasDaArvore.size() < totalDeVertices - 1) {
 
@@ -81,12 +71,12 @@ public class AlgoritmoPrim {
         }
 
         return arestasDaArvore;
-    }
+    }                    
 
     /**
      * Marca o vértice como pertencente à árvore e coloca na fila
      * todas as arestas que levam a vértices que ainda estão FORA da árvore.
-     */
+     */                              
     private void adicionarVerticeNaArvore(int vertice, boolean[] estaNaArvore,
                                           PriorityQueue<Aresta> filaDeArestasCandidatas) {
         estaNaArvore[vertice] = true;

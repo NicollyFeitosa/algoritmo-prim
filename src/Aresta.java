@@ -1,9 +1,3 @@
-/**
- * Representa uma aresta (ligação) entre dois vértices do grafo.
- *
- * Como o grafo é NÃO direcionado, a mesma ligação é guardada duas vezes
- * na lista de adjacência: uma saindo da origem e outra saindo do destino.
- */
 public class Aresta implements Comparable<Aresta> {
 
     private final int verticeOrigem;
@@ -28,10 +22,7 @@ public class Aresta implements Comparable<Aresta> {
         return peso;
     }
 
-    /**
-     * Permite que a fila de prioridade (PriorityQueue) ordene as arestas
-     * do menor peso para o maior peso.
-     */
+    // Permite que a fila de prioridade ordene as arestas do menor peso para o maior peso.
     @Override
     public int compareTo(Aresta outraAresta) {
         return Double.compare(this.peso, outraAresta.peso);

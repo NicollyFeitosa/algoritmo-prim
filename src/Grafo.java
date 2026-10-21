@@ -3,12 +3,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Grafo não direcionado e ponderado, representado por LISTA DE ADJACÊNCIA.
- *
- * Cada vértice tem um nome (ex.: "Aldeota") e um número interno (índice),
- * usado para acessar as listas rapidamente.
- */
 public class Grafo {
 
     private final List<String> nomesDosVertices = new ArrayList<>();
@@ -16,9 +10,6 @@ public class Grafo {
     private final List<List<Aresta>> listaDeAdjacencia = new ArrayList<>();
     private int quantidadeDeArestas = 0;
 
-    /**
-     * Adiciona um vértice ao grafo (se ainda não existir) e devolve o seu índice.
-     */
     public int adicionarVertice(String nomeDoVertice) {
         Integer indiceExistente = indicePorNome.get(nomeDoVertice);
         if (indiceExistente != null) {
@@ -32,10 +23,6 @@ public class Grafo {
         return novoIndice;
     }
 
-    /**
-     * Adiciona uma aresta não direcionada entre dois vértices.
-     * Os vértices são criados automaticamente caso ainda não existam.
-     */
     public void adicionarAresta(String nomeOrigem, String nomeDestino, double peso) {
         if (peso < 0) {
             throw new IllegalArgumentException("Peso negativo não é permitido neste exemplo: " + peso);

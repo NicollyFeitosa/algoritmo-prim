@@ -5,15 +5,6 @@ import java.nio.file.Path;
 import java.util.List;
 
 /**
- * Ponto de entrada do programa.
- *
- * PROBLEMA ESCOLHIDO (Aplicação):
- *   Uma provedora de internet quer ligar, com cabos de fibra óptica, 8 bairros
- *   de Fortaleza (incluindo o bairro da Unifor, Edson Queiroz). Cada aresta é um
- *   trecho onde é possível passar cabo, e o peso é o comprimento em km.
- *   Objetivo: conectar TODOS os bairros gastando o MENOR total de cabo.
- *   Isso é exatamente a Árvore Geradora Mínima, encontrada pelo Algoritmo de Prim.
- *
  * Uso:
  *   java -cp out Main                          -> roda o exemplo embutido
  *   java -cp out Main arquivo.txt              -> lê o grafo de um arquivo
@@ -66,10 +57,6 @@ public class Main {
         System.out.println("Custo total: " + Grafo.formatarPeso(algoritmoPrim.getCustoTotal()));
     }
 
-    /**
-     * Monta o grafo do problema de aplicação: rede de fibra óptica entre bairros
-     * de Fortaleza. As distâncias (em km) são aproximadas e servem para ilustração.
-     */
     private static Grafo criarGrafoDaRedeDeFibra() {
         Grafo grafo = new Grafo();
         grafo.adicionarAresta("Edson Queiroz", "Cocó", 4);
